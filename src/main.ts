@@ -1,6 +1,16 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { importProvidersFrom } from '@angular/core';
+import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: 'broker.hivemq.com',
+  port: 8000,
+  path: '/mqtt',
+}
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    importProvidersFrom(MqttModule.forRoot(MQTT_SERVICE_OPTIONS)),
+  ]
+}).catch((err) => console.error(err));
