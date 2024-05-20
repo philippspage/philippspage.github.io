@@ -1,0 +1,39 @@
+.pulse-button,
+.mqtt-button {
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 350px;
+    margin: 75px auto;
+    left: 0;
+    right: 0;
+}
+
+.pulse-button {
+    animation: pulse 1.2s ease infinite;
+    background: rgb(244, 82, 69);
+}
+
+.mqtt-icon {
+    transform: scale(8);
+}
+
+.toolbar-text {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}

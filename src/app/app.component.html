@@ -1,20 +1,14 @@
-<table>
-    <tr>
-        <td>Topic: </td>
-        <td><input [(ngModel)]="topicname" type="text" /></td>
-        <td><button type="button" (click)="subscribeNewTopic()">Subscribe Topic</button></td>
-    </tr>
-    <tr>
-        <td>Message: </td>
-        <td><input [(ngModel)]="msg" type="text" /></td>
-        <td><button type="button" (click)="sendmsg()">Send</button></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&nbsp;&nbsp;<button type="button" (click)="clear()">Clear Log</button></td>
-        <td></td>
-    </tr>
-</table>
-<br /><br />
-<div #msglog>
-</div>
+<p>
+  <mat-toolbar color="primary">
+    <span class="toolbar-text">Benachrichtigung</span>
+  </mat-toolbar>
+</p>
+
+<div *ngIf="alarmSet" class="pulse-button"></div>
+<button *ngIf="alarmSet" mat-flat-button color="warn" class="mqtt-button" (click)="resetAlarm()" aria-label="Example icon button with a delete icon">
+  <mat-icon class="mqtt-icon">notifications_active</mat-icon>
+</button>
+
+<button *ngIf="!alarmSet" mat-flat-button color="accent" class="mqtt-button" (click)="setAlarm()" aria-label="Example icon button with a delete icon">
+  <mat-icon class="mqtt-icon">notifications</mat-icon>
+</button>
