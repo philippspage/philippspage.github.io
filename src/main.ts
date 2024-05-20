@@ -5,7 +5,8 @@ import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
 
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
   hostname: 'broker.hivemq.com',
-  port: 8000,
+  port: 8884,
+  protocol: 'wss',
   path: '/mqtt',
 }
 
